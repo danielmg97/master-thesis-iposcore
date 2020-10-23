@@ -1,5 +1,5 @@
 # Master's Thesis
-### Clinical Prognosis and Risk Prediction of PostoperativeComplications in Cancer Patients
+### Clinical Prognosis and Risk Prediction of Postoperative Complications in Cancer Patients
 
 This repository contains all the code and results used in this project.
 
