@@ -13,31 +13,27 @@ ALL: 83
 
     óbito até 1 ano
     33
+
 #### Feature ranking for the output: #### dias na UCI
 ['reoperação (%)', 'complicações sérias (%)', 'ACS - previsão dias internamento', 'qualquer complicação (%)', 'ARISCAT PONTUAÇÃO TOTAL', 'risco médio', 'pneumonia (%)', 'risco médio.1', 'risco médio.3', 'tromboembolismo venoso (%)', 'risco médio.11', 'PP nº procedimentos', 'ACS dependente ventilador', 'SCORE ARISCAT', '% mortalidade P-Possum', 'risco médio.2', 'ARISCAT duração cirurgia', 'ACS sépsis sistémica', 'Score gravidade cirúrgica P-Possum', 'Discharge to Nursing or Rehab Facility (%)', 'risco médio.4', 'complicações cardíacas (%)', 'morte (%)', 'PP leucócitos', 'falência renal (%)', 'PP contaminação peritoneal', 'risco médio.13', 'risco médio.6', 'infeção cirúrgica (%)', 'PP perda sangue', '% morbilidade P-Possum', 'Score fisiológico P-Possum', 'ARISCAT procedimento emergente', 'PP ureia', 'PP CEPOD-classificação operação', 'readmissão (%)', 'risco médio.10', 'ARISCAT anemia pré-operativa', 'especialidade_COD', 'ACS ascite', 'risco médio.7', 'PP hemoglobina', 'ACS dispneia', 'ACS emergência', 'tipo cirurgia', 'ACS fumador', 'ARISCAT incisão cirúrgica', 'risco médio.12', 'género', 'PP respiratório', 'ASA', 'ACS género', 'PP pulsação arterial', 'ACS ASA', 'ACS DPOC', 'PP pressão arterial sistólica', 'PP sódio', 'ACS estado funcional', 'PP potássio', 'ACS peso']
 
 
-ALL: 83
 #### Feature ranking for the output: #### complicação pós-cirúrgica
 ['complicações sérias (%)', 'qualquer complicação (%)', 'ACS - previsão dias internamento', 'pneumonia (%)', 'reoperação (%)', 'Discharge to Nursing or Rehab Facility (%)', '% morbilidade P-Possum', 'morte (%)', 'tromboembolismo venoso (%)', 'falência renal (%)', '% mortalidade P-Possum', 'complicações cardíacas (%)', 'readmissão (%)', 'Score gravidade cirúrgica P-Possum', 'ARISCAT procedimento emergente', 'Score fisiológico P-Possum', 'risco médio.1', 'risco médio', 'ARISCAT anemia pré-operativa', 'infeção cirúrgica (%)', 'ITU (%)', 'risco médio.4', 'risco médio.11', 'risco médio.13', 'risco médio.12', 'ARISCAT PONTUAÇÃO TOTAL', 'risco médio.10', 'SCORE ARISCAT', 'ARISCAT SpO2 ', 'risco médio.7', 'risco médio.6', 'risco médio.5', 'risco médio.2', 'ARISCAT infeção respiratória último mês', 'risco médio.3', 'PP contaminação peritoneal', 'ACS estado funcional', 'PP respiratório', 'PP hemoglobina', 'ACS sépsis sistémica', 'idade']
 
 
-ALL: 83
 #### Feature ranking for the output: #### classificação clavien-dindo
 ['ARISCAT procedimento emergente', 'ARISCAT anemia pré-operativa', 'morte (%)', 'pneumonia (%)', 'complicações sérias (%)', 'ACS - previsão dias internamento', 'qualquer complicação (%)', 'ARISCAT SpO2 ', 'Discharge to Nursing or Rehab Facility (%)', '% mortalidade P-Possum', 'ARISCAT infeção respiratória último mês', 'falência renal (%)', 'complicações cardíacas (%)', 'reoperação (%)', '% morbilidade P-Possum', 'tromboembolismo venoso (%)', 'Score gravidade cirúrgica P-Possum', 'ACS estado funcional', 'Score fisiológico P-Possum', 'ARISCAT incisão cirúrgica', 'PP contaminação peritoneal', 'readmissão (%)', 'ACS sépsis sistémica', 'risco médio.11', 'ITU (%)', 'ARISCAT PONTUAÇÃO TOTAL', 'risco médio.12', 'risco médio', 'risco médio.1', 'risco médio.13', 'infeção cirúrgica (%)', 'risco médio.4', 'SCORE ARISCAT', 'risco médio.7', 'risco médio.10', 'ACS altura', 'risco médio.3', 'risco médio.2', 'risco médio.6', 'ACS peso', 'risco médio.5']
 
 
-ALL: 83
 #### Feature ranking for the output: #### óbito até 1 ano
 ['pneumonia (%)', 'complicações sérias (%)', 'qualquer complicação (%)', 'ACS - previsão dias internamento', 'readmissão (%)', 'Discharge to Nursing or Rehab Facility (%)', '% morbilidade P-Possum', 'reoperação (%)', 'morte (%)', '% mortalidade P-Possum', 'tromboembolismo venoso (%)', 'Score fisiológico P-Possum', 'Score gravidade cirúrgica P-Possum', 'complicações cardíacas (%)', 'falência renal (%)', 'ITU (%)', 'ACS peso', 'ARISCAT anemia pré-operativa', 'risco médio.11', 'idade', 'risco médio.13', 'risco médio.1', 'risco médio', 'ACS estado funcional', 'infeção cirúrgica (%)', 'ARISCAT procedimento emergente', 'risco médio.12', 'ARISCAT incisão cirúrgica', 'PP hemoglobina', 'risco médio.4', 'risco médio.2', 'risco médio.10', 'ARISCAT SpO2 ']
 
 
-ALL: 83
 #### Feature ranking for the output: #### dias no  IPOP
 ['ARISCAT procedimento emergente', 'ARISCAT anemia pré-operativa', 'ARISCAT infeção respiratória último mês', 'ARISCAT SpO2 ', '% mortalidade P-Possum', 'falência renal (%)', 'ACS - previsão dias internamento', 'reoperação (%)', 'complicações sérias (%)', 'morte (%)', 'qualquer complicação (%)', 'risco médio.4', 'pneumonia (%)', 'infeção cirúrgica (%)', 'risco médio.1', 'risco médio.13', 'risco médio', 'Score gravidade cirúrgica P-Possum', 'tromboembolismo venoso (%)', 'risco médio.11', 'Discharge to Nursing or Rehab Facility (%)', 'risco médio.10', 'readmissão (%)', 'risco médio.12', 'Score fisiológico P-Possum', 'complicações cardíacas (%)', '% morbilidade P-Possum', 'risco médio.5', 'ARISCAT PONTUAÇÃO TOTAL', 'SCORE ARISCAT', 'ITU (%)', 'risco médio.6', 'risco médio.3', 'ACS altura', 'ACS peso', 'risco médio.7']
 
 
-ALL: 83
 #### Feature ranking for the output: #### óbito_tempo decorrido após data cirurgia (até 1 ano)
 ['morte (%)', 'pneumonia (%)', 'ACS - previsão dias internamento', 'complicações sérias (%)', 'qualquer complicação (%)', 'Discharge to Nursing or Rehab Facility (%)', 'complicações cardíacas (%)', '% 
 mortalidade P-Possum', 'readmissão (%)', '% morbilidade P-Possum', 'ARISCAT SpO2 ', 'tromboembolismo venoso (%)', 'ARISCAT procedimento emergente', 'reoperação (%)', 'ARISCAT anemia pré-operativa', 'Score gravidade cirúrgica P-Possum', 'Score fisiológico P-Possum', 'falência renal (%)', 'ACS estado funcional', 'ITU (%)', 'ACS peso', 'risco médio.13', 'risco médio.11', 'risco médio.12', 'risco médio.1', 'risco médio', 'idade', 'infeção cirúrgica (%)']
@@ -55,31 +51,27 @@ mortalidade P-Possum', 'readmissão (%)', '% morbilidade P-Possum', 'ARISCAT SpO
 
     óbito até 1 ano
     16
+
 #### Feature ranking for the output: #### dias na UCI
 ['reoperação (%)', 'complicações sérias (%)', 'ACS - previsão dias internamento', 'qualquer complicação (%)', 'ARISCAT PONTUAÇÃO TOTAL', 'risco médio', 'pneumonia (%)', 'risco médio.1', 'risco médio.3', 'tromboembolismo venoso (%)', 'risco médio.11', 'PP nº procedimentos', 'ACS dependente ventilador', 'SCORE ARISCAT', '% mortalidade P-Possum', 'risco médio.2', 'ARISCAT duração cirurgia', 'ACS sépsis sistémica', 'Score gravidade cirúrgica P-Possum', 'Discharge to Nursing or Rehab Facility (%)', 'risco médio.4', 'complicações cardíacas (%)', 'morte (%)', 'PP leucócitos', 'falência renal (%)', 'PP contaminação peritoneal', 'risco médio.13']
 
 
-ALL: 83
 #### Feature ranking for the output: #### complicação pós-cirúrgica
 ['complicações sérias (%)', 'qualquer complicação (%)', 'ACS - previsão dias internamento', 'pneumonia (%)', 'reoperação (%)', 'Discharge to Nursing or Rehab Facility (%)', '% morbilidade P-Possum', 'morte (%)', 'tromboembolismo venoso (%)', 'falência renal (%)', '% mortalidade P-Possum', 'complicações cardíacas (%)', 'readmissão (%)', 'Score gravidade cirúrgica P-Possum', 'ARISCAT procedimento emergente', 'Score fisiológico P-Possum', 'risco médio.1', 'risco médio', 'ARISCAT anemia pré-operativa', 'infeção cirúrgica (%)', 'ITU (%)', 'risco médio.4', 'risco médio.11', 'risco médio.13', 'risco médio.12', 'ARISCAT PONTUAÇÃO TOTAL', 'risco médio.10']
 
 
-ALL: 83
 #### Feature ranking for the output: #### classificação clavien-dindo
 ['ARISCAT procedimento emergente', 'ARISCAT anemia pré-operativa', 'morte (%)', 'pneumonia (%)', 'complicações sérias (%)', 'ACS - previsão dias internamento', 'qualquer complicação (%)', 'Discharge to Nursing or Rehab Facility (%)', '% mortalidade P-Possum', 'falência renal (%)', 'complicações cardíacas (%)', 'reoperação (%)', '% morbilidade P-Possum', 'tromboembolismo venoso (%)', 'Score gravidade cirúrgica P-Possum', 'Score fisiológico P-Possum', 'readmissão (%)', 'risco médio.11', 'ITU (%)', 'ARISCAT PONTUAÇÃO TOTAL', 'risco médio.12', 'risco médio', 'risco médio.1', 'risco médio.13', 'infeção cirúrgica (%)', 'risco médio.4', 'SCORE ARISCAT', 'risco médio.7']
 
 
-ALL: 83
 #### Feature ranking for the output: #### óbito até 1 ano
 ['pneumonia (%)', 'complicações sérias (%)', 'qualquer complicação (%)', 'ACS - previsão dias internamento', 'readmissão (%)', 'Discharge to Nursing or Rehab Facility (%)', '% morbilidade P-Possum', 'reoperação (%)', 'morte (%)', '% mortalidade P-Possum', 'tromboembolismo venoso (%)', 'Score fisiológico P-Possum', 'Score gravidade cirúrgica P-Possum', 'complicações cardíacas (%)', 'falência renal (%)', 'ITU (%)']
 
 
-ALL: 83
 #### Feature ranking for the output: #### dias no  IPOP
 ['ARISCAT procedimento emergente', 'ARISCAT anemia pré-operativa', 'ARISCAT infeção respiratória último mês', '% mortalidade P-Possum', 'falência renal (%)', 'ACS - previsão dias internamento', 'reoperação (%)', 'complicações sérias (%)', 'morte (%)', 'qualquer complicação (%)', 'risco médio.4', 'pneumonia (%)', 'infeção cirúrgica (%)', 'risco médio.1', 'risco médio.13', 'risco médio', 'Score gravidade cirúrgica P-Possum', 'tromboembolismo venoso (%)', 'risco médio.11', 'Discharge to Nursing or Rehab Facility (%)', 'risco médio.10', 'readmissão (%)', 'risco médio.12', 'Score fisiológico P-Possum', 'complicações cardíacas (%)', '% morbilidade P-Possum', 'risco médio.5', 'ARISCAT PONTUAÇÃO TOTAL', 'SCORE ARISCAT', 'ITU (%)', 'risco médio.6']
 
 
-ALL: 83
 #### Feature ranking for the output: #### óbito_tempo decorrido após data cirurgia (até 1 ano)
 ['morte (%)', 'pneumonia (%)', 'ACS - previsão dias internamento', 'complicações sérias (%)', 'qualquer complicação (%)', 'Discharge to Nursing or Rehab Facility (%)', 'complicações cardíacas (%)', '% 
 mortalidade P-Possum', 'readmissão (%)', '% morbilidade P-Possum', 'tromboembolismo venoso (%)', 'reoperação (%)', 'Score gravidade cirúrgica P-Possum', 'Score fisiológico P-Possum', 'falência renal (%)']

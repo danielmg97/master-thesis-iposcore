@@ -1,0 +1,167 @@
+++ = 0.1 p-value
++  = 0.0001 p-value
+
+*** OPT (no_selection) ***
+
+    > Classification Complication
+        {'n_neighbors': 10, 'weights': 'uniform'}
+        {'ccp_alpha': 0.00033514029600854867, 'criterion': 'gini', 'max_depth': 84, 'min_samples_leaf': 16, 'min_samples_split': 10, 'min_weight_fraction_leaf': 0.006997454163191403, 'splitter': 'random'}
+        {'ccp_alpha': 0.0011099469890931818, 'criterion': 'gini', 'min_samples_leaf': 14, 'min_samples_split': 14, 'min_weight_fraction_leaf': 0.0003697013624808938, 'n_estimators': 50}
+        {'C': 1.8685145743875649, 'decision_function_shape': 'ovo', 'degree': 3, 'gamma': 'scale', 'kernel': 'rbf', 'shrinking': False, 'tol': 0.045855638056383506}
+        {'C': 0.08035299230850745, 'fit_intercept': False, 'penalty': 'l2', 'solver': 'saga'}
+        {'booster': 'gbtree', 'gamma': 0.020378724221450446, 'learning_rate': 0.06999558433910678, 'max_depth': 18, 'n_estimators': 270, 'reg_alpha': 0.00010039334340736686}
+        {'activation': 'identity', 'alpha': 0.00023922065113711865, 'batch_size': 250, 'early_stopping': False, 'hidden_layer_sizes': (25), 'learning_rate': 'adaptive', 'learning_rate_init': 0.0016662140938665715, 'solver': 'sgd'}
+
+    > Classification Severity
+        {'n_neighbors': 48, 'weights': 'distance'}
+        {'ccp_alpha': 0.0001321333448409692, 'criterion': 'gini', 'max_depth': 75, 'min_samples_leaf': 14, 'min_samples_split': 16, 'min_weight_fraction_leaf': 0.019094661328607775, 'splitter': 'best'}
+        {'ccp_alpha': 0.0009103207327372043, 'criterion': 'entropy', 'min_samples_leaf': 16, 'min_samples_split': 6, 'min_weight_fraction_leaf': 0.014311533908442989, 'n_estimators': 150}
+        {'C': 0.9189234151553689, 'decision_function_shape': 'ovo', 'degree': 3, 'gamma': 'auto', 'kernel': 'rbf', 'shrinking': False, 'tol': 0.003970023949811552}
+        {'C': 0.2246304891861346, 'fit_intercept': False, 'penalty': 'l2', 'solver': 'lbfgs'}
+        {'booster': 'dart', 'gamma': 0.012925475325721735, 'learning_rate': 0.005812754377284124, 'max_depth': 3, 'n_estimators': 420, 'reg_alpha': 0.0001406038579548865}
+        {'activation': 'tanh', 'alpha': 0.0163020172962808, 'batch_size': 300, 'early_stopping': False, 'hidden_layer_sizes': (50,100,50,), 'learning_rate': 'invscaling', 'learning_rate_init': 0.009857518651835451, 'solver': 'adam'}
+
+    > Classification Obito
+        {'n_neighbors': 4, 'weights': 'uniform'}
+        {'ccp_alpha': 0.0008164441131025791, 'criterion': 'entropy', 'max_depth': 51, 'min_samples_leaf': 2, 'min_samples_split': 18, 'min_weight_fraction_leaf': 0.4390857558643149, 'splitter': 'best'}
+        {'ccp_alpha': 0.0015350846450790524, 'criterion': 'entropy', 'min_samples_leaf': 6, 'min_samples_split': 16, 'min_weight_fraction_leaf': 0.0025524643060734096, 'n_estimators': 200}
+        {'C': 1.6136204472012943, 'decision_function_shape': 'ovo', 'degree': 5, 'gamma': 'scale', 'kernel': 'rbf', 'shrinking': False, 'tol': 0.0016385662109461184}
+        {'C': 0.13462010975587382, 'fit_intercept': True, 'penalty': 'l2', 'solver': 'lbfgs'}
+        {'booster': 'dart', 'gamma': 0.007534385901076864, 'learning_rate': 0.5240628318691967, 'max_depth': 3, 'n_estimators': 120, 'reg_alpha': 0.03506282747303021}
+        {'activation': 'identity', 'alpha': 0.12284268593974768, 'batch_size': 100, 'early_stopping': False, 'hidden_layer_sizes': (50,), 'learning_rate': 'adaptive', 'learning_rate_init': 0.044626743912542836, 'solver': 'adam'}
+
+    > Regression Severity
+        {'fit_intercept': True, 'normalize': False}
+        {'alpha': 1.433616782546514, 'fit_intercept': True, 'normalize': False, 'solver': 'auto'}
+        {'alpha': 6.097527112471915, 'fit_intercept': False, 'normalize': False, 'precompute': False}
+        {'C': 1.2947486555069185, 'degree': 5, 'gamma': 'scale', 'kernel': 'rbf', 'shrinking': False}
+        {'alpha': 1.2916130552465075, 'fit_intercept': False, 'l1_ratio': 0.001801666698174747, 'normalize': False}
+        {'algorithm': 'kd_tree', 'n_neighbors': 22, 'weights': 'uniform'}
+        {'ccp_alpha': 0.004342561405542502, 'criterion': 'mae', 'max_depth': 65, 'min_samples_leaf': 14, 'min_samples_split': 14, 'min_weight_fraction_leaf': 0.005684146290952337, 'splitter': 'random'}
+        {'ccp_alpha': 0.017580241052617063, 'criterion': 'mae', 'min_samples_leaf': 4, 'min_samples_split': 10, 'min_weight_fraction_leaf': 0.004809827759508562, 'n_estimators': 80}
+        {'booster': 'gbtree', 'gamma': 0.001615896871147276, 'learning_rate': 0.004144048200160541, 'max_depth': 9, 'n_estimators': 320, 'reg_alpha': 0.05908488686823017}
+        {'n_components': 1}
+        {'activation': 'logistic', 'alpha': 0.00010781136106364605, 'batch_size': 250, 'early_stopping': True, 'hidden_layer_sizes': (50,), 'learning_rate': 'adaptive', 'learning_rate_init': 0.0029368234170485115, 'solver': 'adam'}
+
+    > Regression Days
+        {'fit_intercept': False, 'normalize': True}
+        {'alpha': 1.0084999130619332, 'fit_intercept': True, 'normalize': True, 'solver': 'auto'}
+        {'alpha': 2.30527979234979, 'fit_intercept': True, 'normalize': False, 'precompute': True}
+        {'C': 1.2015431074644953, 'degree': 4, 'gamma': 'scale', 'kernel': 'rbf', 'shrinking': False}
+        {'alpha': 1.0036833450105551, 'fit_intercept': False, 'l1_ratio': 0.020572520729076584, 'normalize': True}
+        {'algorithm': 'ball_tree', 'n_neighbors': 46, 'weights': 'uniform'}
+        {'ccp_alpha': 0.0013643422221902815, 'criterion': 'mae', 'max_depth': 95, 'min_samples_leaf': 14, 'min_samples_split': 16, 'min_weight_fraction_leaf': 0.0033686540008876905, 'splitter': 'random'}
+        {'ccp_alpha': 0.005275566397171974, 'criterion': 'mae', 'min_samples_leaf': 8, 'min_samples_split': 20, 'min_weight_fraction_leaf': 0.005085724373320969, 'n_estimators': 120}
+        {'booster': 'gbtree', 'gamma': 0.0002491578788307851, 'learning_rate': 0.002155922123347837, 'max_depth': 3, 'n_estimators': 500, 'reg_alpha': 0.0006542724632320029}
+        {'n_components': 2}
+        {'activation': 'logistic', 'alpha': 0.0011216587184417774, 'batch_size': 50, 'early_stopping': True, 'hidden_layer_sizes': (100,100,), 'learning_rate': 'invscaling', 'learning_rate_init': 0.0011787100570382375, 'solver': 'adam'}
+
+***OPT 0.0001 ***
+
+    > Classification Complication
+        {'n_neighbors': 34, 'weights': 'distance'}
+        {'ccp_alpha': 0.00429295112201027, 'criterion': 'gini', 'max_depth': 93, 'min_samples_leaf': 6, 'min_samples_split': 14, 'min_weight_fraction_leaf': 0.13708520673251146, 'splitter': 'best'}
+        {'ccp_alpha': 0.0384258250479654, 'criterion': 'gini', 'min_samples_leaf': 16, 'min_samples_split': 10, 'min_weight_fraction_leaf': 0.017596034317898027, 'n_estimators': 20}
+        {'C': 1.9996513568560503, 'decision_function_shape': 'ovo', 'degree': 5, 'gamma': 'scale', 'kernel': 'linear', 'shrinking': False, 'tol': 0.009148823602882007}
+        {'C': 0.4534006074557504, 'fit_intercept': True, 'dual': False, 'penalty': 'l2', 'solver': 'liblinear'}
+        {'booster': 'dart', 'gamma': 0.0003173319796021907, 'learning_rate': 0.005636323967519565, 'max_depth': 6, 'n_estimators': 350, 'reg_alpha': 0.00015182046374735654}
+        {'activation': 'identity', 'alpha': 0.0031199417306985162, 'batch_size': 250, 'early_stopping': True, 'hidden_layer_sizes': (25), 'learning_rate': 'adaptive', 'learning_rate_init': 0.07281583397017921, 'solver': 'sgd'}
+
+    > Classification Severity
+        {'n_neighbors': 12, 'weights': 'uniform'}
+        {'ccp_alpha': 0.0012499567107979162, 'criterion': 'gini', 'max_depth': 81, 'min_samples_leaf': 8, 'min_samples_split': 20, 'min_weight_fraction_leaf': 0.22882264730753812, 'splitter': 'random'}
+        {'ccp_alpha': 0.01639097706223533, 'criterion': 'gini', 'min_samples_leaf': 20, 'min_samples_split': 10, 'min_weight_fraction_leaf': 0.0001675222584292594, 'n_estimators': 200}
+        {'C': 0.40377293036689427, 'decision_function_shape': 'ovr', 'degree': 4, 'gamma': 'scale', 'kernel': 'rbf', 'shrinking': True, 'tol': 0.07709880964539434}
+        {'C': 1.9197684226946312, 'fit_intercept': True, 'penalty': 'none', 'solver': 'sag'}
+        {'booster': 'gbtree', 'gamma': 1.2300321508261962, 'learning_rate': 0.042396341810979996, 'max_depth': 17, 'n_estimators': 170, 'reg_alpha': 0.044095288835510976}
+        {'activation': 'logistic', 'alpha': 0.0520090314379177, 'batch_size': 200, 'early_stopping': True, 'hidden_layer_sizes': (25), 'learning_rate': 'invscaling', 'learning_rate_init': 0.00127923087363695, 'solver': 'lbfgs'}
+
+    > Classification Death
+        {'n_neighbors': 4, 'weights': 'uniform'}
+        {'ccp_alpha': 0.0002621591045514422, 'criterion': 'gini', 'max_depth': 72, 'min_samples_leaf': 12, 'min_samples_split': 12, 'min_weight_fraction_leaf': 0.03225070598332315, 'splitter': 'best'}
+        {'ccp_alpha': 0.0006476706731739106, 'criterion': 'gini', 'min_samples_leaf': 10, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0003392453212472795, 'n_estimators': 120}
+        {'C': 1.9524429654131306, 'decision_function_shape': 'ovr', 'degree': 5, 'gamma': 'auto', 'kernel': 'linear', 'shrinking': False, 'tol': 0.08488271936872323}
+        {'C': 1.5149546680431834, 'fit_intercept': True, 'penalty': 'none', 'solver': 'sag'}
+        {'booster': 'gbtree', 'gamma': 0.01217811556240899, 'learning_rate': 0.7944278910400787, 'max_depth': 36, 'n_estimators': 210, 'reg_alpha': 0.004646922554067186}
+        {'activation': 'tanh', 'alpha': 0.0019528798409905903, 'batch_size': 100, 'early_stopping': False, 'hidden_layer_sizes': (25), 'learning_rate': 'constant', 'learning_rate_init': 0.0014018047686829552, 'solver': 'adam'}
+
+    > Regression Severity
+        {'fit_intercept': True, 'normalize': True}
+        {'alpha': 1.4356765645820724, 'fit_intercept': True, 'normalize': False, 'solver': 'auto'}
+        {'alpha': 9.663052603303248, 'fit_intercept': False, 'normalize': True, 'precompute': True}
+        {'C': 1.3029077878653237, 'degree': 5, 'gamma': 'scale', 'kernel': 'rbf', 'shrinking': True}
+        {'alpha': 1.1132276444070772, 'fit_intercept': False, 'l1_ratio': 0.009312491615277252, 'normalize': False}
+        {'algorithm': 'brute', 'n_neighbors': 22, 'weights': 'uniform'}
+        {'ccp_alpha': 0.0010966158782928297, 'criterion': 'mae', 'max_depth': 70, 'min_samples_leaf': 12, 'min_samples_split': 8, 'min_weight_fraction_leaf': 0.06502645425165987, 'splitter': 'random'}
+        {'ccp_alpha': 0.023415474996602674, 'criterion': 'mae', 'min_samples_leaf': 6, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.004088545306169188, 'n_estimators': 100}
+        {'booster': 'dart', 'gamma': 0.003642914237204647, 'learning_rate': 0.0035603832947454345, 'max_depth': 3, 'n_estimators': 460, 'reg_alpha': 0.014395166907462276}
+        {'n_components': 3}
+        {'activation': 'logistic', 'alpha': 0.016879916221349926, 'batch_size': 300, 'early_stopping': False, 'hidden_layer_sizes': (50,), 'learning_rate': 'adaptive', 'learning_rate_init': 0.01749690261049504, 'solver': 'adam'}
+
+    > Regression Days
+        {'fit_intercept': False, 'normalize': True}
+        {'alpha': 1.0161020029593626, 'fit_intercept': True, 'normalize': True, 'solver': 'auto'}
+        {'alpha': 3.65586591657791, 'fit_intercept': True, 'normalize': True, 'precompute': False}
+        {'C': 1.201966659062525, 'degree': 5, 'gamma': 'scale', 'kernel': 'rbf', 'shrinking': True}
+        {'alpha': 1.0244126085161624, 'fit_intercept': False, 'l1_ratio': 0.0009062756077093115, 'normalize': True}
+        {'algorithm': 'brute', 'n_neighbors': 46, 'weights': 'uniform'}
+        {'ccp_alpha': 0.021270317984444176, 'criterion': 'mae', 'max_depth': 10, 'min_samples_leaf': 12, 'min_samples_split': 6, 'min_weight_fraction_leaf': 0.0023657322805192217, 'splitter': 'best'}
+        {'ccp_alpha': 0.0037892053379269632, 'criterion': 'mae', 'min_samples_leaf': 8, 'min_samples_split': 6, 'min_weight_fraction_leaf': 0.005681808128580106, 'n_estimators': 180}
+        {'booster': 'gbtree', 'gamma': 0.00179866468766607, 'learning_rate': 0.0033309758058766986, 'max_depth': 3, 'n_estimators': 460, 'reg_alpha': 0.0033595214600199196}
+        {'n_components': 1}
+        {'activation': 'tanh', 'alpha': 0.003850255057655146, 'batch_size': 150, 'early_stopping': False, 'hidden_layer_sizes': (50,100,50,), 'learning_rate': 'invscaling', 'learning_rate_init': 0.011371928356166733, 'solver': 'sgd'}
+
+***OPT 0.1***
+
+    > Classification Complication
+        {'n_neighbors': 18, 'weights': 'uniform'}
+        {'ccp_alpha': 0.003158836284337476, 'criterion': 'entropy', 'max_depth': 12, 'min_samples_leaf': 18, 'min_samples_split': 8, 'min_weight_fraction_leaf': 0.04150970034587553, 'splitter': 1}
+        {'ccp_alpha': 0.007376371845815248, 'criterion': 'entropy', 'min_samples_leaf': 12, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.011213022432220807, 'n_estimators': 20}
+        {'C': 1.4315349110765008, 'decision_function_shape': 'ovo', 'degree': 5, 'gamma': 'auto', 'kernel': 'linear', 'shrinking': True, 'tol': 0.041651534375602026}
+        {'C': 1.904889278629025, 'fit_intercept': True, 'l1_ratio': 0.28207145242820697, 'penalty': 'elasticnet', 'solver': 'saga'}
+        {'booster': 'dart', 'gamma': 0.028248409091746977, 'learning_rate': 0.8201332490632605, 'max_depth': 36, 'n_estimators': 110, 'reg_alpha': 0.0003410258189114528}
+        {'activation': 'logistic', 'alpha': 0.00012855766180589005, 'batch_size': 50, 'early_stopping': True, 'hidden_layer_sizes': (50,), 'learning_rate': 'invscaling', 'learning_rate_init': 0.09624815038246906, 'solver': 'lbfgs'}
+
+    > Classification Severity
+        {'n_neighbors': 12, 'weights': 'uniform'}
+        {'ccp_alpha': 0.00021848070587403436, 'criterion': 0, 'max_depth': 60, 'min_samples_leaf': 6, 'min_samples_split': 20, 'min_weight_fraction_leaf': 0.1360284580094963, 'splitter': 0}
+        {'ccp_alpha': 0.021741436475361905, 'criterion': 0, 'min_samples_leaf': 2, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0004011837899573551, 'n_estimators': 30}
+        {'C': 1.137043709865312, 'decision_function_shape': 'ovr', 'degree': 5, 'gamma': 'scale', 'kernel': 'linear', 'shrinking': True, 'tol': 0.05224048951134231}
+        {'C': 0.487199883552072, 'fit_intercept': True, 'penalty': 'l1', 'solver': 'liblinear'}
+        {'booster': 'dart', 'gamma': 0.7078791378965007, 'learning_rate': 0.006003103216192764, 'max_depth': 1, 'n_estimators': 130, 'reg_alpha': 0.055628048317247485}
+        {'activation': 'tanh', 'alpha': 0.00010257336852803629, 'batch_size': 250, 'early_stopping': False, 'hidden_layer_sizes': (25), 'learning_rate': 'adaptive', 'learning_rate_init': 0.0010656109130631173, 'solver': 'adam'}
+
+    > Classification Death
+        {'n_neighbors': 10, 'weights': 'uniform'}
+        {'ccp_alpha': 0.0005021528951313316, 'criterion': 'entropy', 'max_depth': 36, 'min_samples_leaf': 10, 'min_samples_split': 12, 'min_weight_fraction_leaf': 0.014198089748714372, 'splitter': 1}
+        {'ccp_alpha': 0.00016431154701314744, 'criterion': 'entropy', 'min_samples_leaf': 12, 'min_samples_split': 20, 'min_weight_fraction_leaf': 0.0028766141876542515, 'n_estimators': 70}
+        {'C': 1.9657376172241314, 'decision_function_shape': 'ovr', 'degree': 4, 'gamma': 'auto', 'kernel': 'rbf', 'shrinking': False, 'tol': 0.06761584751747673}
+        {'C': 1.6525410121670268, 'fit_intercept': False, 'penalty': 'l1', 'solver': 'liblinear'}
+        {'booster': 2, 'gamma': 0.0022120526934845323, 'learning_rate': 0.5753762481785569, 'max_depth': 27, 'n_estimators': 150, 'reg_alpha': 0.002825934300702562}
+        {'activation': 'logistic', 'alpha': 0.01584678952495818, 'batch_size': 150, 'early_stopping': False, 'hidden_layer_sizes': (25), 'learning_rate': 'adaptive', 'learning_rate_init': 0.020905841532323482, 'solver': 'sgd'}
+
+    > Regression Severity
+        {'fit_intercept': False, 'normalize': False}
+        {'alpha': 9.999477475455103, 'fit_intercept': False, 'normalize': False, 'solver': 'auto'}
+        {'alpha': 2.807369031058963, 'fit_intercept': False, 'normalize': False, 'precompute': True}
+        {'C': 0.7803017216533735, 'degree': 4, 'gamma': 'scale', 'kernel': 'rbf', 'shrinking': True}
+        {'alpha': 1.0867523402170132, 'fit_intercept': False, 'l1_ratio': 0.0002741011631456902, 'normalize': True}
+        {'algorithm': 'kd_tree', 'n_neighbors': 28, 'weights': 'distance'}
+        {'ccp_alpha': 0.0005739913845507395, 'criterion': 2, 'max_depth': 75, 'min_samples_leaf': 14, 'min_samples_split': 12, 'min_weight_fraction_leaf': 0.0017470814564770842, 'splitter': 1}
+        {'ccp_alpha': 0.020094511321263102, 'criterion': 'mae', 'min_samples_leaf': 8, 'min_samples_split': 18, 'min_weight_fraction_leaf': 0.0002541535243351869, 'n_estimators': 20}
+        {'booster': 2, 'gamma': 0.0010137138524742317, 'learning_rate': 0.005574834742044873, 'max_depth': 21, 'n_estimators': 240, 'reg_alpha': 0.000271615786949664}
+        {'n_components': 3}
+        {'activation': 'tanh', 'alpha': 0.02137869340621498, 'batch_size': 200, 'early_stopping': True, 'hidden_layer_sizes': (50,), 'learning_rate': 'invscaling', 'learning_rate_init': 0.004678722534514956, 'solver': 'adam'}
+
+    > Regression Days
+        {'fit_intercept': False, 'normalize': False}
+        {'alpha': 2.026731377532221, 'fit_intercept': True, 'normalize': True, 'solver': 'auto'}
+        {'alpha': 4.575918499164157, 'fit_intercept': True, 'normalize': True, 'precompute': False}
+        {'C': 0.606522040866752, 'degree': 3, 'gamma': 'scale', 'kernel': 'rbf', 'shrinking': True}
+        {'alpha': 2.331178395333172, 'fit_intercept': False, 'l1_ratio': 0.0010250858372409643, 'normalize': False}
+        {'algorithm': 'ball_tree', 'n_neighbors': 38, 'weights': 'uniform'}
+        {'ccp_alpha': 0.0024348321503631673, 'criterion': 2, 'max_depth': 10, 'min_samples_leaf': 12, 'min_samples_split': 18, 'min_weight_fraction_leaf': 0.0002395319616883768, 'splitter': 1}
+        {'ccp_alpha': 0.006959011651425836, 'criterion': 'mae', 'min_samples_leaf': 20, 'min_samples_split': 18, 'min_weight_fraction_leaf': 0.02156897547425383, 'n_estimators': 200}
+        {'booster': 2, 'gamma': 0.1447112553018635, 'learning_rate': 0.0024665053205051852, 'max_depth': 3, 'n_estimators': 420, 'reg_alpha': 0.019900067616538546}
+        {'n_components': 1}
+        {'activation': 'relu', 'alpha': 0.12379681206829639, 'batch_size': 200, 'early_stopping': True, 'hidden_layer_sizes': (50,50,50,), 'learning_rate': 'adaptive', 'learning_rate_init': 0.0062462078547118535, 'solver': 'sgd'}

@@ -2,10 +2,11 @@ import math
 import numpy as np
 import pandas as pd
 import global_variables
+import variables_translater
 
 import warnings
 warnings.filterwarnings("ignore")
-from IPython.display import display
+# from IPython.display import display
 
 from sklearn import preprocessing
 from sklearn.impute import KNNImputer
@@ -30,6 +31,13 @@ from sklearn.metrics import r2_score
 from dtreeviz.trees import *
 import pydotplus
 from sklearn.tree import export_graphviz
+
+from yellowbrick.regressor import ResidualsPlot
+import copy
+
+import matplotlib.pyplot as plt
+from sklearn.metrics import auc as auc_calc
+from sklearn.metrics import plot_roc_curve
 
 def load_data(output,variables,filepath="./bd.xlsx"):
     data = pd.read_excel(open(filepath, 'rb'), skiprows=1)
@@ -102,22 +110,17 @@ def tree_plot_regression(clf,dataset,headers,to_dummify,name=None):
     # if(name=='XGB'):
     #     print("gblinear")
     # else:
-    lista = list(zip(X_train.columns, clf.feature_importances_))
+    lista = list(zip(variables_translater.tradutor(list(X_train.columns)), clf.feature_importances_))
     lista = sorted(lista, key=lambda par: par[1])
     lista.reverse()
     for el in lista:
       print(el)
 
     if(name=='Decision Tree'):
-        lista = list(zip(X_train.columns, clf.feature_importances_))
-        lista = sorted(lista, key=lambda par: par[1])
-        lista.reverse()
-        for el in lista:
-          print(el)
 
         dot_data = export_graphviz(clf, 
                     out_file=None, 
-                    feature_names = X_train.columns,
+                    feature_names = variables_translater.tradutor(list(X_train.columns)),
                     filled = True)
         graph = pydotplus.graph_from_dot_data(dot_data)
         nodes = graph.get_node_list()
@@ -203,22 +206,17 @@ def tree_plot_classification(clf,dataset,headers,to_dummify,name=None):
 
     clf.fit(X_train, y_train)
     
-    lista = list(zip(X_train.columns, clf.feature_importances_))
+    lista = list(zip(variables_translater.tradutor(list(X_train.columns)), clf.feature_importances_))
     lista = sorted(lista, key=lambda par: par[1])
     lista.reverse()
     for el in lista:
       print(el)
 
     if(name=='Decision Tree'):
-        lista = list(zip(X_train.columns, clf.feature_importances_))
-        lista = sorted(lista, key=lambda par: par[1])
-        lista.reverse()
-        for el in lista:
-          print(el)
 
         dot_data = export_graphviz(clf, 
                     out_file=None, 
-                    feature_names = X_train.columns,
+                    feature_names = variables_translater.tradutor(list(X_train.columns)),
                     class_names = ['0','1','2','3','4','5','6','7'],
                     rounded = True,
                     filled = True)
@@ -259,44 +257,57 @@ def tree_plot_classification(clf,dataset,headers,to_dummify,name=None):
 
         graph.write_png('colored_tree.png')
 
+def data_preprocess(X_train, X_test, y_train, y_test, to_dummify, headers, resample=False):
+     # Missing values imputation, on X (using KNN)
+    imp = KNNImputer(n_neighbors=15)
+    X_train = imp.fit_transform(X_train)
+    X_test = imp.transform(X_test)
+
+    X_train = pd.DataFrame(X_train,columns=headers[0:-1])
+    X_test = pd.DataFrame(X_test,columns=headers[0:-1])
+
+    for col in to_dummify: # problem with imputer giving float values to categoric variables...
+      try:
+        X_train[col]=X_train[col].round(0)
+        X_test[col]=X_test[col].round(0)
+      except:
+        pass
+
+    # Dummification of categoric variables
+    transformer = ColumnTransformer(transformers=[('cat', OneHotEncoder(handle_unknown='ignore'), to_dummify)], remainder='passthrough')        
+    X_train = transformer.fit_transform(X_train)
+    X_test = transformer.transform(X_test)
+
+    if(resample):
+      # Resampling (for imbalanced problems)
+      smt = SMOTEENN(random_state=42)
+      X_train, y_train = smt.fit_resample(X_train, y_train)
+
+    # Normalization
+    scaler = MaxAbsScaler() 
+    X_train = scaler.fit_transform(X_train)
+    X_test = scaler.transform(X_test)
+
+    return X_train, X_test, y_train, y_test
+
 def k_fold(clf,dataset,headers,to_dummify):
     # Lists to store the results of k-fold iterations
     kappa = []
     recall = []
     auc = []
     accuracy = []
+
+    # Vars for ROC curve plot
+    # tprs = []
+    # aucs = []
+    # mean_fpr = np.linspace(0, 1, 100)
+    # fig, ax = plt.subplots()
+    # i=1
+
     skf = StratifiedKFold(n_splits=10, random_state=42, shuffle=True) #Stratified because of imbalance (avoid missing some classes randomly)
-    for train_index, test_index in skf.split(dataset[:,:-1], dataset[:,-1]):
-        X_train, X_test, y_train, y_test = dataset[:,:-1][train_index], dataset[:,:-1][test_index], dataset[:,-1][train_index], dataset[:,-1][test_index]
+    for train_index, test_index in skf.split(dataset[:,:-1], dataset[:,-1]): 
 
-        # Missing values imputation, on X (using KNN)
-        imp = KNNImputer(n_neighbors=15)
-        X_train = imp.fit_transform(X_train)
-        X_test = imp.transform(X_test)
-
-        X_train = pd.DataFrame(X_train,columns=headers[0:-1])
-        X_test = pd.DataFrame(X_test,columns=headers[0:-1])
-
-        for col in to_dummify: # problem with imputer giving float values to categoric variables...
-          try:
-            X_train[col]=X_train[col].round(0)
-            X_test[col]=X_test[col].round(0)
-          except:
-            pass
-
-        # Dummification of categoric variables
-        transformer = ColumnTransformer(transformers=[('cat', OneHotEncoder(handle_unknown='ignore'), to_dummify)], remainder='passthrough')        
-        X_train = transformer.fit_transform(X_train)
-        X_test = transformer.transform(X_test)
-
-        # Resampling (for imbalanced problems)
-        smt = SMOTEENN(random_state=42)
-        X_train, y_train = smt.fit_resample(X_train, y_train)
-
-        # Normalization
-        scaler = MaxAbsScaler() 
-        X_train = scaler.fit_transform(X_train)
-        X_test = scaler.transform(X_test)
+        X_train, X_test, y_train, y_test = data_preprocess(dataset[:,:-1][train_index], dataset[:,:-1][test_index], dataset[:,-1][train_index], dataset[:,-1][test_index], to_dummify, headers, resample=True)
 
         try:
           clf.fit(X_train, y_train)
@@ -313,6 +324,15 @@ def k_fold(clf,dataset,headers,to_dummify):
         kappa.append(cohen_kappa_score(y_test, y_pred))
         auc.append(roc_auc_score(y_test, y_pred_proba,multi_class='ovo'))
         accuracy.append(accuracy_score(y_test, y_pred))
+
+        ########## ROC CURVE ###########
+        # viz = plot_roc_curve(clf, X_test, y_test,name='ROC fold {}'.format(i),alpha=0.3, lw=1, ax=ax)
+        # interp_tpr = np.interp(mean_fpr, viz.fpr, viz.tpr)
+        # interp_tpr[0] = 0.0
+        # tprs.append(interp_tpr)
+        # aucs.append(viz.roc_auc)
+        # i+=1
+        ################################
 
     print('Kappa = '+str(sum(kappa)/len(kappa)))
     recall_avg = np.zeros(len(recall[0]))
@@ -331,11 +351,32 @@ def k_fold(clf,dataset,headers,to_dummify):
     print("accuracy",accuracy)
     print("\n")
 
+    ######## PLOT ROC CURVE ###########
+    # ax.plot([0, 1], [0, 1], linestyle='--', lw=2, color='r',label='Chance', alpha=.8)
+
+    # mean_tpr = np.mean(tprs, axis=0)
+    # mean_tpr[-1] = 1.0
+    # mean_auc = auc_calc(mean_fpr, mean_tpr)
+    # std_auc = np.std(aucs)
+    # ax.plot(mean_fpr, mean_tpr, color='b',label=r'Mean ROC (AUC = %0.2f $\pm$ %0.2f)' % (mean_auc, std_auc),lw=2, alpha=.8)
+
+    # std_tpr = np.std(tprs, axis=0)
+    # tprs_upper = np.minimum(mean_tpr + std_tpr, 1)
+    # tprs_lower = np.maximum(mean_tpr - std_tpr, 0)
+    # ax.fill_between(mean_fpr, tprs_lower, tprs_upper, color='grey', alpha=.2,label=r'$\pm$ 1 std. dev.')
+
+    # ax.set(xlim=[-0.05, 1.05], ylim=[-0.05, 1.05],title="Receiver operating characteristic '"+variables_translater.tradutor([headers[-1]])[0]+"'")
+    # ax.legend(bbox_to_anchor=(1.00, 1), loc='upper left')
+    # plt.savefig('roc_k_fold_'+headers[-1]+'_'+type(clf).__name__+'.png',dpi=300, bbox_inches = "tight")
+    ###################################
+
     return 1-np.mean(recall_avg)
     # return 1-(sum(kappa)/len(kappa))
     # return 1-sum(auc)/len(auc)
 
-def reg_k_fold(clf, dataset, headers, to_dummify, n_outputs = 1):
+def reg_k_fold(reg, dataset, headers, to_dummify, n_outputs = 1):
+
+    # model = copy.deepcopy(reg)
     mae = []
     rmse = []
     r2 = []
@@ -346,39 +387,15 @@ def reg_k_fold(clf, dataset, headers, to_dummify, n_outputs = 1):
 
     cv = KFold(n_splits = 10, random_state = 42, shuffle = True)
     for train_index, test_index in cv.split(dataset[:,:-1], dataset[:,-1]):
-        X_train, X_test, y_train, y_test = dataset[:,:-1][train_index], dataset[:,:-1][test_index], dataset[:,-1][train_index], dataset[:,-1][test_index]
-
-        # Missing values imputation, on X (using KNN)
-        imp = KNNImputer(n_neighbors=15)
-        X_train = imp.fit_transform(X_train)
-        X_test = imp.transform(X_test)
-
-        X_train = pd.DataFrame(X_train,columns=headers[0:-1])
-        X_test = pd.DataFrame(X_test,columns=headers[0:-1])
-
-        for col in to_dummify: # problem with imputer giving float values to categoric variables...
-          try:
-            X_train[col]=X_train[col].round(0)
-            X_test[col]=X_test[col].round(0)
-          except:
-            pass
-
-        # Dummification
-        transformer = ColumnTransformer(transformers=[('cat', OneHotEncoder(handle_unknown='ignore'), to_dummify)], remainder='passthrough')        
-        X_train = transformer.fit_transform(X_train)
-        X_test = transformer.transform(X_test)
-
-        #Normalization
-        scaler = MaxAbsScaler() 
-        X_train = scaler.fit_transform(X_train)
-        X_test = scaler.transform(X_test)
+        
+        X_train, X_test, y_train, y_test = data_preprocess(dataset[:,:-1][train_index], dataset[:,:-1][test_index], dataset[:,-1][train_index], dataset[:,-1][test_index], to_dummify, headers)
 
         try:
-          clf.fit(X_train, y_train)
+          reg.fit(X_train, y_train)
         except TypeError:
           X_train = X_train.toarray()
           X_test = X_test.toarray()
-          clf.fit(X_train, y_train)
+          reg.fit(X_train, y_train)
         except:
           print("***###***FAILED_FIT***###***")
           print("X_train:")
@@ -390,7 +407,7 @@ def reg_k_fold(clf, dataset, headers, to_dummify, n_outputs = 1):
           for x in X_train:
             if(pd.isnull(np.array(x)).any):
               print(x)
-        y_pred = clf.predict(X_test)
+        y_pred = reg.predict(X_test)
         
         # Metrics
         if(pd.isnull(np.array(y_pred)).any()):
@@ -436,5 +453,17 @@ def reg_k_fold(clf, dataset, headers, to_dummify, n_outputs = 1):
     print("recall",recall)
     print("accuracy",accuracy)
     print("\n")
+
+    ###### Plot Residuals ########
+    # X_train, X_test, y_train, y_test = train_test_split(dataset[:,0:-1], dataset[:,-1], test_size=0.33, random_state=42)
+    # X_train, X_test, y_train, y_test = data_preprocess(X_train, X_test, y_train, y_test, to_dummify, headers)
+    # try:
+    #   visualizer = ResidualsPlot(model)
+    #   visualizer.fit(X_train, y_train)
+    #   visualizer.score(X_test, y_test)
+    #   visualizer.show(outpath='roc_k_fold_'+headers[-1]+'_'+type(model).__name__+'.png',dpi=300, bbox_inches = "tight")
+    # except:
+    #   pass
+    ##############################
 
     return sum(mae)/len(mae)
